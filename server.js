@@ -38,7 +38,7 @@ const contactSchema = z.object({
 
 // Routes
 app.post('/contact', async (req, res) => {
-    try {\
+    try {
         // Validate the request body
         const validatedData = contactSchema.parse(req.body);
 
