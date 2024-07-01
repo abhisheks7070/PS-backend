@@ -38,7 +38,7 @@ const contactSchema = z.object({
 
 // Routes
 app.post('/contact', async (req, res) => {
-    try {
+    try {\
         // Validate the request body
         const validatedData = contactSchema.parse(req.body);
 
@@ -78,4 +78,6 @@ app.delete('/:id', async (req, res) => {
 });
 
 
-app.listen()
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
