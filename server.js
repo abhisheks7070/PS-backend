@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Contact = require('./db');
 const { z } = require('zod');
 const cors = require('cors')
-
+require("dotenv").config();
 
 // Middleware
 const corsOptions = {
@@ -18,7 +18,8 @@ app.use(express.json());
 const app = express();
 const PORT = process.env.PORT || 5000;
 // MongoDB connection
-mongoose.connect('mongodb+srv://sabhishek7070:Ttorres9@cluster0.3githov.mongodb.net/contactdb');
+
+mongoose.connect(process.env.MONGODB_URI)
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
