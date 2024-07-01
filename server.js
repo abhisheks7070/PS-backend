@@ -31,8 +31,7 @@ db.once('open', () => {
 // Zod schema
 const contactSchema = z.object({
     name: z.string().min(1, 'Name is required'),
-    // email:  z.string().email().optional().or(z.literal('')),
-    // email:   z.optional(z.string().email({ message: "Invalid email address" })),
+    email: z.string().email().optional(),
     phone: z.string().regex(/^\d+$/, { message: "Phone number should contain only digits" }).min(10, { message: "Phone number should be at least 10 digits" }),
     message: z.string().min(1, 'Message is required'),
 });
@@ -40,7 +39,6 @@ const contactSchema = z.object({
 // Routes
 app.post('/contact', async (req, res) => {
     try {
-        console.log('hello')
         // Validate the request body
         const validatedData = contactSchema.parse(req.body);
 
@@ -80,6 +78,4 @@ app.delete('/:id', async (req, res) => {
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+app.listen()
