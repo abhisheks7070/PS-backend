@@ -11,7 +11,7 @@ app.use(express.json());
 // Middleware
 const corsOptions = {
     // origin: "http://localhost:5173" // frontend URI (ReactJS)
-    origin: "https://pankaj-singh.onrender.com" // frontend URI (ReactJS)
+    origin: ["https://pankaj-singh.onrender.com", "https://ps-agent.onrender.com"] // frontend URI (ReactJS)
 }
 
 app.use(cors());
