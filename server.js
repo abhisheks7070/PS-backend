@@ -31,7 +31,7 @@ db.once('open', () => {
 // Zod schema
 const contactSchema = z.object({
     name: z.string().min(1, 'Name is required'),
-    email: z.string().email().optional(),
+    email: z.optional(z.string()),
     phone: z.string().regex(/^\d+$/, { message: "Phone number should contain only digits" }).min(10, { message: "Phone number should be at least 10 digits" }),
     message: z.string().min(1, 'Message is required'),
 });
